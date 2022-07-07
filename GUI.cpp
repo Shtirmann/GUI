@@ -264,11 +264,11 @@ std::pair<int32_t, int32_t> GUI::ClickCoord() {
     if (InputRecord.Event.MouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED) {
       coord.X = InputRecord.Event.MouseEvent.dwMousePosition.X;
       coord.Y = InputRecord.Event.MouseEvent.dwMousePosition.Y;
-      return (std::make_pair(-1 * static_cast<int32_t>(coord.X), -1 * static_cast<int32_t>(coord.Y)));
+      return (std::make_pair(-1 * static_cast<int32_t>(coord.X + 1), -1 * static_cast<int32_t>(coord.Y + 1)));
     } else if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {
       coord.X = InputRecord.Event.MouseEvent.dwMousePosition.X;
       coord.Y = InputRecord.Event.MouseEvent.dwMousePosition.Y;
-      return (std::make_pair(static_cast<int32_t>(coord.X), static_cast<int32_t>(coord.Y)));
+      return (std::make_pair(static_cast<int32_t>(coord.X + 1), static_cast<int32_t>(coord.Y + 1)));
     }
   }
 }
