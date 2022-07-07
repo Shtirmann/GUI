@@ -250,7 +250,7 @@ void GUI::FancyFrame(std::string x, uint32_t spaces) {
   std::cout << "-\'";
 }
 
-std::pair<int32_t, int32_t> GUI::ClickCoord() {
+std::pair<int16_t, int16_t> GUI::ClickCoord() {
   HANDLE hin = GetStdHandle(STD_INPUT_HANDLE);
   INPUT_RECORD InputRecord;
   DWORD Events;
@@ -264,11 +264,11 @@ std::pair<int32_t, int32_t> GUI::ClickCoord() {
     if (InputRecord.Event.MouseEvent.dwButtonState == RIGHTMOST_BUTTON_PRESSED) {
       coord.X = InputRecord.Event.MouseEvent.dwMousePosition.X;
       coord.Y = InputRecord.Event.MouseEvent.dwMousePosition.Y;
-      return (std::make_pair(-1 * static_cast<int32_t>(coord.X + 1), -1 * static_cast<int32_t>(coord.Y + 1)));
+      return (std::make_pair(static_cast<int16_t>(-1 * (coord.X + 1)), static_cast<int16_t>(-1 * (coord.Y + 1))));
     } else if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED) {
       coord.X = InputRecord.Event.MouseEvent.dwMousePosition.X;
       coord.Y = InputRecord.Event.MouseEvent.dwMousePosition.Y;
-      return (std::make_pair(static_cast<int32_t>(coord.X + 1), static_cast<int32_t>(coord.Y + 1)));
+      return (std::make_pair(static_cast<int16_t>(coord.X + 1), static_cast<int16_t>(coord.Y + 1)));
     }
   }
 }

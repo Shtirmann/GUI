@@ -52,7 +52,7 @@ void SetCursorPosition(int x, int y);
 void FancyFrame(std::string x, uint32_t spaces = 0);
 /// Координаты клика игрока.
 /// \return Возвращает положительные координаты X Y если клик был левой кнокой мыши и отрицательные если правой, где X - номер символа в строке, а Y - номер строки.
-std::pair<int32_t, int32_t> ClickCoord();
+std::pair<int16_t, int16_t> ClickCoord();
 /// Очищает новые элементы на консоли.
 void SemiCls();
 /// Вывоит содержимое файла.
